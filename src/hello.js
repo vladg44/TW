@@ -1,1 +1,3 @@
-console.log("hello world!");
+let sayHello = (name) => `Hello, ${name}!`;
+
+console.log(sayHello(process.argv[2]));
