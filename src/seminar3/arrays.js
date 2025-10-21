@@ -38,9 +38,63 @@ console.log("result: ", result);
 
 //implementați o funcție care primește ca parametrii un array de numere și un număr și returnează suma tuturor numerelor din array divizibile cu cel de-al doilea parametru.
 const numere = [5, 7, 11, 27, 15, 23, 21, 35, 42];
-const div = 3;
+const div = numere[1];
 const getSum = (numere, div) =>
   numere
     .filter((nr) => nr % div == 0)
     .reduce((prev, current) => prev + current, 0);
 console.log("Suma: ", getSum(numere, div));
+
+//exemplul 3
+
+const formatString = (s, ...format) => {
+  let modified = s;
+  for (let i = 0; i < format.length; i++) {
+    if (modified.indexOf("{" + i + "}") !== -1) {
+      modified = modified.replace("{" + i + "}", format[i]);
+    }
+  }
+  return modified;
+};
+
+console.log(
+  formatString("this is a {0} string  and we've {1} it ", "nice", "modified")
+);
+
+const addAnS = (s, parametrii) => {
+  let modified = s;
+
+  for (let key in parametrii) {
+    let lista = parametrii[key];
+    if (lista != null) {
+      const random = Math.floor(Math.random() * lista.length);
+      let val = lista[random];
+
+      if (modified.indexOf("{" + key + "}") !== -1) {
+        modified = modified.replace("{" + key + "}", val);
+      }
+    }
+  }
+
+  return modified;
+};
+
+console.log(
+  addAnS("un {substantiv} este {adjectiv}", {
+    substantiv: ["căluț", "ursuleț", "pisoi", "iepuraș"],
+    adjectiv: ["drăguț", "simpatic", "blând", "energic"],
+  })
+);
+
+
+const sampleArray = [1, 2, 3, 4, 5]
+
+const map = (array, transformation) => {
+
+    const result = []
+    for (const element of array) {
+        result.push(transformation(element))
+    }
+    return result
+}
+console.log(map(sampleArray, (x) => x * 2))
