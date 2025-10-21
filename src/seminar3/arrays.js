@@ -86,15 +86,23 @@ console.log(
   })
 );
 
-
-const sampleArray = [1, 2, 3, 4, 5]
+const sampleArray = [1, 2, 3, 4, 5];
 
 const map = (array, transformation) => {
+  const result = [];
+  for (const element of array) {
+    result.push(transformation(element));
+  }
+  return result;
+};
+console.log(map(sampleArray, (x) => x * 2));
 
-    const result = []
-    for (const element of array) {
-        result.push(transformation(element))
-    }
-    return result
-}
-console.log(map(sampleArray, (x) => x * 2))
+const reduce = (sampleArray) => {
+  let sum = 0;
+  for (let i = 0; i < sampleArray.length; i++) sum += sampleArray[i];
+
+  const result = [sum];
+  return result;
+};
+
+console.log(reduce(sampleArray));
