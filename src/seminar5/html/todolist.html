@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To do:</h1>
+    <ul id="todo"></ul>
+    <h2>Add new task</h2>
+    <form id="form">
+        <input type="text" id="task"/>
+        <button type="submit" id="submitBtn">Add</button>
+    </form>
+
+    <script>
+        var form = document.getElementById("form");
+
+        var formSubmitHandler = (e) => { 
+            e.preventDefault(); // pagina nu se mai reîncarcă
+            var list = document.getElementById("todo");
+            var tasktxt = document.getElementById("task").value.trim();
+
+            if (tasktxt === "") return; // nu adăugăm taskuri goale
+
+            var listItem = document.createElement("li");
+            listItem.textContent = tasktxt;
+
+            list.appendChild(listItem);
+
+            document.getElementById("task").value = ""; // reset input
+        };
+
+        form.onsubmit = formSubmitHandler;
+    </script>
+</body>
+</html>

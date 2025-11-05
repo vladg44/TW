@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Agenda Telefonică</title>
+</head>
+<body>
+    <h1>Agenda Telefonică</h1>
+
+    <table border="1" id="contactsTable">
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Telefon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Contactele vor fi adăugate aici -->
+        </tbody>
+    </table>
+
+    <h2>Adaugă Contact</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Nume" required />
+        <input type="text" id="phone" placeholder="Telefon" required />
+        <button type="submit">Adaugă</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("contactForm");
+        const tableBody = document.getElementById("contactsTable").querySelector("tbody");
+
+        // Eveniment la submitul formularului
+        form.onsubmit = function(e) {
+            e.preventDefault(); // prevenim refresh-ul paginii
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            if(name === "" || phone === "") return; // validare simplă
+
+            // Creăm un rând nou în tabel
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            const phoneCell = document.createElement("td");
+
+            nameCell.textContent = name;
+            phoneCell.textContent = phone;
+
+            row.appendChild(nameCell);
+            row.appendChild(phoneCell);
+            tableBody.appendChild(row);
+
+            // Resetăm formularul
+            form.reset();
+
+            // Eveniment custom: anunțăm că s-a adăugat un contact
+            const event = new CustomEvent("contactAdded", { detail: { name, phone } });
+            document.dispatchEvent(event);
+        };
+
+        // Tratăm evenimentul custom
+        document.addEventListener("contactAdded", (e) => {
+            console.log("Contact adăugat:", e.detail.name, e.detail.phone);
+        });
+    </script>
+</body>
+</html>

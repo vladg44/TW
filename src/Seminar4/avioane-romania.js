@@ -52,8 +52,8 @@ function showAirplanes(country, airplanes) {
 
 
 async function main(){
-const romania= await getAirplanesInCountry('Romania');
-showAirplanes('Romania',romania);
+const country= await getAirplanesInCountry('Germany');
+showAirplanes('Germania', country);
 }
 
 main();

@@ -1,14 +1,5 @@
-# Node.js template
+# Teme seminar tehnologii web
 
-This is a Node.js project with an HTTP server.
+Aici am incarcat toate temele de pe student.nextlab.tech
 
-Add your [configuration](https://codesandbox.io/docs/projects/learn/setting-up/tasks) to optimize it for [CodeSandbox](https://codesandbox.io).
-
-## How does this work?
-
-We run `yarn start` to start an HTTP server that runs on http://localhost:8080. You can open new or existing devtools with the + button next to the devtool tabs.
-
-## Resources
-
-- [CodeSandbox — Docs](https://codesandbox.io/docs)
-- [CodeSandbox — Discord](https://discord.gg/Ggarp3pX5H)
+## In fiecare folder am scripturile pentru fiecare seminar in parte si temele la fel

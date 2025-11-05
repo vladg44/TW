@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Exemplu Evenimente DOM</title>
+</head>
+<body>
+    <button id="btn">Apasă-mă</button>
+    <p id="text">Text inițial</p>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const text = document.getElementById("text");
+
+        // Eveniment click
+        btn.addEventListener("click", () => {
+            console.log("Buton apăsat!");
+
+            // Creăm și trimitem un eveniment custom
+            const evenimentCustom = new CustomEvent("schimbaText", {
+                detail: { mesaj: "Textul a fost schimbat!" }
+            });
+
+            text.dispatchEvent(evenimentCustom);
+        });
+
+        // Tratarea evenimentului custom
+        text.addEventListener("schimbaText", (e) => {
+            text.textContent = e.detail.mesaj;
+        });
+    </script>
+</body>
+</html>
