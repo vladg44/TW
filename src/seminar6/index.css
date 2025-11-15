@@ -1,0 +1,48 @@
+.btn:hover {
+    color: blue;
+}
+
+input:required {
+    background-color: red;
+}
+
+input[type=checkbox]:checked {
+    
+    background-color: blue;
+    border: 2px solid red;
+}
+
+input[type="checkbox"]:checked::after {
+content:""; 
+position: absolute; 
+font-size: 24px;
+color: white; 
+
+
+border: solid white;
+            border-width: 0 4px 4px 0; /* Grosimea bifei */
+            
+            /* Mărimea bifei */
+            width: 8px;
+            height: 14px;
+
+            /* Poziționarea în centru */
+            top: 40%;
+            left: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+    
+    background-color: wheat;
+    position: relative;
+    
+}
+
+p::first-line {
+    font-weight: bold;
+}

@@ -54,7 +54,7 @@ router.route("/updateItem/:id").put((req, res) => {
     array[index] = { ...array[index], ...updatedData, id: id };
     res.json(array[index]); // Returnează elementul actualizat
   } else {
-    // Elementul nu a fost găsit
+    
     res.status(404).json({ message: "Element not found" });
   }
 });
@@ -70,10 +70,10 @@ router.route("/deleteItem/:id").delete((req, res) => {
     // Elementul a fost găsit
     // Suprascrie array-ul cu o versiune care NU conține elementul cu acel ID
     array = array.filter(el => el.id !== id);
-    // Răspunde cu succes (și poți trimite înapoi array-ul actualizat)
+    
     res.status(200).json(array); 
   } else {
-    // Elementul nu a fost găsit
+   
     res.status(404).json({ message: "Element not found" });
   }
 });

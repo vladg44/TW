@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <style>
+        * {
+            background-color: #410303;
+            color: #e88989;
+        }
+
+        #container {
+            border: 1px dashed #ccc;
+            margin: 20px
+        }
+
+        div {
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        #container div:first-child {
+            background-color: #2d2bc3;
+            color: #eee;
+        }
+
+        #container div:first-child::before {
+            content: "Window: ";
+            margin-left: 10px;
+        }
+
+        #container div:last-child {
+            background-color: #c01818;
+            text-align: right;
+        }
+
+        #container div:last-child::after {
+            content: " Copyright 2023";
+            margin-right: 10px;
+        }
+
+        #container .main {
+            width: 100%;
+            height: 400px;
+            background-color: #fff;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        #container .main * {
+            margin: 0;
+            padding: 10px;
+            background-color: #810a6b;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>Title</div>
+        <div class="main">
+            <p>a</p>
+            <p>b</p>
+            <p>c</p>
+        </div>
+        <div>Footer</div>
+    </div>
+</body>
+
+</html>
