@@ -311,7 +311,7 @@ app.put("/universities/:universityId/students/:studentId", async (req, res, next
 });
 
 /**
- * DELETE a student from a university.
+ * DELETE un student din university.
  */
 app.delete("/universities/:universityId/students/:studentId", async (req, res, next) => {
   try {
